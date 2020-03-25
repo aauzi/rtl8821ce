@@ -2302,10 +2302,10 @@ inline bool match_ranges(u16 EID, u32 value)
 	switch (EID) {
 	case _EXT_SUPPORTEDRATES_IE_:
 	case _SUPPORTEDRATES_IE_:
+		/*	clear bit7 before searching.	*/
+		value &= ~BIT(7);
 		nr_range = sizeof(support_rate_ranges)/sizeof(u8);
 		for (i = 0; i < nr_range; i++) {
-			/*	clear bit7 before searching.	*/
-			value &= ~BIT(7);
 			if (value == support_rate_ranges[i])
 				return _TRUE;
 		}
