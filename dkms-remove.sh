@@ -8,9 +8,9 @@ else
 fi
 
 DRV_NAME=rtl8821ce
-DRV_VERSION=v5.5.2_34066.20200325
+DRV_VERSION=$(ls -d /usr/src/${DRV_NAME}-*|cut -d- -f2 -)
 
-dkms remove ${DRV_NAME}/${DRV_VERSION} --all
+dkms remove -m ${DRV_NAME} -v ${DRV_VERSION} --all
 rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 
 RESULT=$?

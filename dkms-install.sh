@@ -8,7 +8,7 @@ else
 fi
 
 DRV_NAME=rtl8821ce
-DRV_VERSION=v5.5.2_34066.20200325
+DRV_VERSION=$(grep DRIVERVERSION include/rtw_version.h|cut -d\" -f2 -|cut -d_ -f1,2 -)
 
 cp -r . /usr/src/${DRV_NAME}-${DRV_VERSION}
 
